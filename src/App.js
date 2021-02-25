@@ -6,8 +6,9 @@ import Statistics from './components/Statistics/Statistics';
 import TransactionHistory from './components/TransactionHistory/TransactionHistory'
 //
 import profileUsers from './db/user.json';
+import statisticsData from './db/statistical-data.json';
 
-console.log(profileUsers);
+console.log(statisticsData);
 
 const {name, tag, location, avatar, stats} = profileUsers
 
@@ -16,8 +17,8 @@ function App() {
         <div className="App">
             <h1>hello</h1>
             <Profile name={name} tag={tag} location={location} avatar={avatar} stats={stats} />
+            <Statistics title='' stats={statisticsData} />
             <FriendList />
-            <Statistics />
             <TransactionHistory />
         </div>
     );
