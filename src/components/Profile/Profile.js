@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Profile.css';
+
+import styles from './Profile.module.css';
+import defaultAvatar from './defaultAvatar.jpg';
 
 const Profile = ({name, tag, location, avatar, stats}) => {
     console.log(name, tag, location, avatar, stats);
     const { followers, views, likes } = stats;
     return (<>
         <div className={styles.profile}>
-            <div className={description}>
+            <div className={styles.description}>
                 <img
                     src={avatar}
                     alt={name}
-                    class="avatar"
+                    class={styles.avatar}
                 />
                 <p className={styles.name}>{name}</p>
                 <p className={styles.tag}>{tag}</p>
@@ -38,7 +40,11 @@ const Profile = ({name, tag, location, avatar, stats}) => {
 
 export default Profile;
 
-Profile.PropTypes = {
+Profile.defaultProps = {
+  avatar: defaultAvatar,
+};
+
+Profile.propTypes = {
     name: PropTypes.string.isRequired,
     tag: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
